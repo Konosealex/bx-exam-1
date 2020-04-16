@@ -159,7 +159,17 @@ IncludeTemplateLangFile(__FILE__);
             <div class="title-block"><?=GetMessage('FOOTER_CONTACT')?></div>
             <div class="loc-block">
                 <div class="address">ул. Летняя, стр.12, офис 512</div>
-                <div class="phone"><a href="tel:84952128506">8 (495) 212-85-06</a>
+                <div class="phone"><?$APPLICATION->IncludeComponent(
+                        "bitrix:main.include",
+                        ".default",
+                        array(
+                            "COMPONENT_TEMPLATE" => ".default",
+                            "AREA_FILE_SHOW" => "file",
+                            "PATH" => "/local/php_interface/include/number.php",
+                            "EDIT_TEMPLATE" => ""
+                        ),
+                        false
+                    );?>
                 </div>
             </div>
             <div class="main-soc-block">

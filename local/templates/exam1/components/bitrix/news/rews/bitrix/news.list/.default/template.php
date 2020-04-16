@@ -29,8 +29,13 @@ $this->setFrameMode(true);
                 <?=$arItem["PREVIEW_TEXT"]?>
             </div>
         </div>
-        <?if ($arItem["PREVIEW_PICTURE"]):?>
-        <div class="review-img-wrap"><a href="<?=$arItem["DETAIL_PAGE_URL"]?>"><img src="<?=$arItem["PREVIEW_PICTURE"]["SRC"]?>" alt="<?=$arItem["NAME"]?>"></a></div>
+        <?if ($arItem["PREVIEW_PICTURE"]):
+            $file = CFile::ResizeImageGet($arItem["PREVIEW_PICTURE"],
+                array('width'=>68, 'height'=>50),
+                BX_RESIZE_IMAGE_PROPORTIONAL,
+                true);
+            ?>
+        <div class="review-img-wrap"><a href="<?=$arItem["DETAIL_PAGE_URL"]?>"><img src="<?=$file["src"]?>" alt="<?=$arItem["NAME"]?>"></a></div>
         <?else:?>
             <div class="review-img-wrap"><a href="<?=$arItem["DETAIL_PAGE_URL"]?>"><img src="<?=SITE_TEMPLATE_PATH?>/img/no_photo.jpg" alt="<?=$arItem["NAME"]?>"></a></div>
         <?endif;?>

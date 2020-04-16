@@ -11,35 +11,35 @@ $aMenuLinks = Array(
 		"Компания", 
 		"company/", 
 		Array(), 
-		Array("DESC"=>"текст для пункта Компания"), 
+		Array("DESC"=>"текст для пункта Компания", "COLOR"=>"red"), 
 		"" 
 	),
 	Array(
 		"Новости", 
 		"news/", 
 		Array(), 
-		Array(), 
+		Array("COLOR"=>"green"), 
 		"" 
 	),
 	Array(
 		"Продукция", 
 		"products/", 
 		Array(), 
-		Array(), 
+		Array("COLOR"=>"red"), 
 		"" 
 	),
 	Array(
 		"Услуги", 
 		"services/", 
 		Array(), 
-		Array(), 
+		Array("COLOR"=>"green"), 
 		"" 
 	),
 	Array(
 		"Партнерам", 
 		"/partneram/", 
 		Array(), 
-		Array("DESC"=>"текст для пункта Партнерам"), 
+		Array("DESC"=>"текст для пункта Партнерам", "COLOR"=>"red"), 
 		"" 
 	)
 );

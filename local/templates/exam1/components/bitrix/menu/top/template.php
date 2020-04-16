@@ -18,7 +18,7 @@ foreach($arResult as $arItem):?>
 	<?endif?>
 
 	<?if ($arItem["IS_PARENT"]):?>
-			<li><a href="<?=$arItem["LINK"]?>" class="parent"><?=$arItem["TEXT"]?></a>
+			<li><a <?if($arItem["PARAMS"]["COLOR"]):?> class="color-<?=$arItem["PARAMS"]["COLOR"]?>" <?endif;?>href="<?=$arItem["LINK"]?>"><?=$arItem["TEXT"]?></a>
 				<ul>
                     <?if ($arItem["PARAMS"]["DESC"]):?>
                     <div class="menu-text"><?=$arItem["PARAMS"]["DESC"]?></div>
@@ -26,7 +26,7 @@ foreach($arResult as $arItem):?>
 
 	<?else:?>
 		<?if ($arItem["PERMISSION"] > "D"):?>
-				<li <?if ($arItem["LINK"] == "/"):?> class="main-page" <?endif;?>><a href="<?=$arItem["LINK"]?>"><?=$arItem["TEXT"]?></a></li>
+				<li <?if ($arItem["LINK"] == "/"):?> class="main-page" <?endif;?>><a <?if($arItem["PARAMS"]["COLOR"]):?> class="color-<?=$arItem["PARAMS"]["COLOR"]?>" <?endif;?> href="<?=$arItem["LINK"]?>"><?=$arItem["TEXT"]?></a></li>
 			<?endif?>
 		<?endif?>
 

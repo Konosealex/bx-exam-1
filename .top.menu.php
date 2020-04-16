@@ -41,6 +41,13 @@ $aMenuLinks = Array(
 		Array(), 
 		Array("DESC"=>"текст для пункта Партнерам", "COLOR"=>"red"), 
 		"" 
+	),
+	Array(
+		"Отзывы", 
+		"/rew/", 
+		Array(), 
+		Array(), 
+		"" 
 	)
 );
 ?>

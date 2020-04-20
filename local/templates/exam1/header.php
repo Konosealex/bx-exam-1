@@ -4,12 +4,13 @@
 // D7
 use Bitrix\Main\Page\Asset;
 
-Asset::getInstance()->addCss(SITE_TEMPLATE_PATH . "/css/reset.css");
-Asset::getInstance()->addCss(SITE_TEMPLATE_PATH . "/css/style.css");
-Asset::getInstance()->addCss(SITE_TEMPLATE_PATH . "/css/owl.carousel.css");
-Asset::getInstance()->addJs(SITE_TEMPLATE_PATH . "/js/jquery.min.js");
-Asset::getInstance()->addJs(SITE_TEMPLATE_PATH . "/js/owl.carousel.min.js");
-Asset::getInstance()->addJs(SITE_TEMPLATE_PATH . "/js/scripts.js");
+$asset = Asset::getInstance();
+$asset->addCss(SITE_TEMPLATE_PATH . "/css/reset.css");
+$asset->addCss(SITE_TEMPLATE_PATH . "/css/style.css");
+$asset->addCss(SITE_TEMPLATE_PATH . "/css/owl.carousel.css");
+$asset->addJs(SITE_TEMPLATE_PATH . "/js/jquery.min.js");
+$asset->addJs(SITE_TEMPLATE_PATH . "/js/owl.carousel.min.js");
+$asset->addJs(SITE_TEMPLATE_PATH . "/js/scripts.js");
 
 IncludeTemplateLangFile(__FILE__);
 ?>
@@ -33,18 +34,15 @@ IncludeTemplateLangFile(__FILE__);
         <div class="inner-wrap">
             <div class="logo-block"><a href="/" class="logo">Мебельный магазин</a>
             </div>
-            <?$time = date(H);?>
-            <?if ($time >=9 && $time < 18):?>
+            <?$time = date('H');
+            $htmlcontent =  ($time >=9 && $time < 18)
+            ? '<a href="tel:84952128506" class="phone">8 (495) 212-85-06</a>'
+            : '<a href="mailto:store@store.ru" class="phone">store@store.ru</a>';
+            ?>
             <div class="main-phone-block">
-                <a href="tel:84952128506" class="phone">8 (495) 212-85-06</a>
+               <?=$htmlcontent?>
                 <div class="shedule">время работы с 9-00 до 18-00</div>
             </div>
-            <?else:?>
-                <div class="main-phone-block">
-                    <a href="mailto:store@store.ru" class="phone">store@store.ru</a>
-                    <div class="shedule">время работы с 9-00 до 18-00</div>
-                </div>
-            <?endif;?>
             <div class="actions-block">
                 <form action="/" class="main-frm-search">
                     <input type="text" placeholder="Поиск">
